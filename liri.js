@@ -37,9 +37,9 @@ if (userInput === "my-tweets") {
 }
 /* Spotify */
 else if (userInput === "spotify-this-song") {
-    
+
     if (str === "") {
-		str = "The Sign Ace"
+        str = "The Sign Ace"
         spotify()
     }
     else {
@@ -84,7 +84,8 @@ else if (userInput === "movie-this") {
 else if (userInput === "do-what-it-says") {
     // run spotify-this-song for "I Want it That Way"
     fs.readFile("random.txt", "utf8", function (error, data) {
-        str = data
+        var dataArr = data.split(",")
+        str = dataArr[1]
         spotify()
     })
 }
@@ -110,6 +111,6 @@ function spotify() {
             console.log("Album: " + data.tracks.items[0].album.name) // album name
             console.log("=========================================")
         }
-        
+
     })
 }
